@@ -28,17 +28,16 @@ app.add_middleware(
 # Registrar rutas de la API
 register_routes(app)
 
-# Montar archivos estáticos
-static_path = os.path.join(os.path.dirname(os.path.dirname(__file__)), "static")
-if os.path.exists(static_path):
-    app.mount("/static", StaticFiles(directory=static_path), name="static")
+# Montar archivos estáticos desde la raíz del proyecto
+root_path = os.path.dirname(os.path.dirname(__file__))
+app.mount("/static", StaticFiles(directory=root_path, html=True), name="static")
 
 @app.get("/")
 async def root():
     """Servir la página principal del frontend."""
-    static_index = os.path.join(static_path, "index.html")
-    if os.path.exists(static_index):
-        return FileResponse(static_index)
+    index_path = os.path.join(root_path, "index.html")
+    if os.path.exists(index_path):
+        return FileResponse(index_path)
     return {
         "message": "Bienvenido a la API de Tienda de Ropa",
         "docs": "/docs",
