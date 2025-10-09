@@ -1,0 +1,15 @@
+{
+	"folders": [
+		{
+			"name": "Tienda-de-ropa",
+			"path": "../.."
+		},
+		{
+			"name": "src",
+			"path": "../../../Downloads/pythonApp-develop/src"
+		}
+	],
+	"settings": {
+		"liveServer.settings.multiRootWorkspaceName": "Tienda-de-ropa"
+	}
+}
