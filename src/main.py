@@ -1,7 +1,46 @@
 from fastapi import FastAPI
+from fastapi.staticfiles import StaticFiles
+from fastapi.responses import FileResponse
+from fastapi.middleware.cors import CORSMiddleware
 from .api import register_routes
+from .database.dbconfig import engine
+from .entities.base import Base
+import os
 
+# Crear las tablas en la base de datos
+Base.metadata.create_all(bind=engine)
 
-app = FastAPI()
+app = FastAPI(
+    title="Tienda de Ropa API",
+    description="API para gestionar productos de una tienda de ropa",
+    version="1.0.0"
+)
 
+# Configurar CORS
+app.add_middleware(
+    CORSMiddleware,
+    allow_origins=["*"],
+    allow_credentials=True,
+    allow_methods=["*"],
+    allow_headers=["*"],
+)
+
+# Registrar rutas de la API
 register_routes(app)
+
+# Montar archivos estáticos
+static_path = os.path.join(os.path.dirname(os.path.dirname(__file__)), "static")
+if os.path.exists(static_path):
+    app.mount("/static", StaticFiles(directory=static_path), name="static")
+
+@app.get("/")
+async def root():
+    """Servir la página principal del frontend."""
+    static_index = os.path.join(static_path, "index.html")
+    if os.path.exists(static_index):
+        return FileResponse(static_index)
+    return {
+        "message": "Bienvenido a la API de Tienda de Ropa",
+        "docs": "/docs",
+        "redoc": "/redoc"
+    }

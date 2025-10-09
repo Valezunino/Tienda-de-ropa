@@ -1,34 +1,32 @@
 from typing import Optional
-from pydantic import BaseModel
-from pydantic import ConfigDict
-
-class Productos(BaseModel):
-    ProductoID: int
-    Producto : str
-    Talla : str
-    color : str
-    precio : float
-    Stock : int
-    Proveedores : str
+from pydantic import BaseModel, ConfigDict
 
 class ProductBase(BaseModel):
-    name: str
-    description: str
-    price: float
-    is_available: bool = True
-    category_id: Optional[int] = None
+    nombre: str
+    talla: Optional[str] = None
+    color: Optional[str] = None
+    precio: float
+    stock: Optional[int] = None
+    proveedor: Optional[str] = None
+
 
 class ProductCreate(ProductBase):
+    """Esquema para crear un producto."""
     pass
 
 
 class ProductUpdate(BaseModel):
-    name: Optional[str] = None
-    description: Optional[str] = None
-    price: Optional[float] = None
-    is_available: Optional[bool] = None
-    category_id: Optional[int] = None
+    """Esquema para actualizar un producto."""
+    nombre: Optional[str] = None
+    talla: Optional[str] = None
+    color: Optional[str] = None
+    precio: Optional[float] = None
+    stock: Optional[int] = None
+    proveedor: Optional[str] = None
+
 
 class ProductOut(ProductBase):
+    """Esquema de salida (para mostrar productos)."""
     id: int
     model_config = ConfigDict(from_attributes=True)
+
