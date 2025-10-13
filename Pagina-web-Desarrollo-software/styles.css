@@ -1,0 +1,360 @@
+/* ====== CONFIGURACIÓN GENERAL ====== */
+/* Ajustes básicos de márgenes y tipografía */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth; /* Efecto suave al hacer clic en los enlaces */
+}
+
+body {
+  font-family: "Poppins", Arial, sans-serif;
+  background-color: #f5f6fa;
+  color: #2f3640;
+  line-height: 1.6;
+}
+
+/* ====== ENCABEZADO Y MENÚ ====== */
+header {
+  background-color: #1e3799;
+  color: white;
+  padding: 15px 0;
+  position: sticky; /* Fija el menú arriba al hacer scroll */
+  top: 0;
+  z-index: 100;
+  box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+}
+
+.navbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  padding: 0 40px;
+  gap: 20px; /* Agrega espacio entre elementos */
+}
+
+
+.navbar h1 {
+  font-size: 1.3rem;
+  text-align: left;
+  flex: 1; /* ocupa todo el espacio disponible */
+  margin-right: 20px; /* Espacio entre título y logo */
+}
+
+/* Logo alineado a la derecha */
+.logo {
+  width: 140px;
+  height: auto;
+  margin-left: auto;
+}
+
+/* Menú de enlaces */
+.nav-links {
+  list-style: none;
+  display: flex;
+  gap: 25px;
+}
+
+.nav-links a {
+  color: white;
+  text-decoration: none;
+  font-weight: 600;
+  transition: color 0.3s;
+}
+
+.nav-links a:hover {
+  color: #fbc531;
+  text-decoration: underline;
+}
+
+/* ====== SECCIÓN PRINCIPAL (HERO) ====== */
+.hero {
+  background: linear-gradient(to right, #273c75, #5693c5);
+  color: white;
+  text-align: center;
+  padding: 100px 20px;
+}
+
+.hero h2 {
+  font-size: 2.8rem;
+  font-weight: 700;
+  margin-bottom: 15px;
+}
+
+.hero p {
+  font-size: 1.4rem;
+  font-weight: 500;
+  margin-bottom: 30px;
+  max-width: 800px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+/* Botón principal */
+.hero .btn {
+  background-color: #fbc531;
+  color: #2f3640;
+  padding: 12px 25px;
+  border-radius: 8px;
+  text-decoration: none;
+  font-weight: bold;
+  transition: background-color 0.3s;
+}
+
+.hero .btn:hover {
+  background-color: #e1b12c;
+}
+
+/* ====== CONTENEDORES DE SECCIONES ====== */
+.card-container {
+  padding: 60px 20px;
+  text-align: center;
+}
+
+.card-container h2 {
+  font-size: 1.8rem;
+  margin-bottom: 30px;
+  color: #1e3799;
+}
+
+/* ====== IMAGEN DE LOGO EN ENCABEZADO ====== */
+.logo {
+  width: 120px;
+  height: auto;
+  margin-left: 20px;
+}
+
+/* Aseguramos que el navbar esté en fila */
+.navbar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  padding: 0 40px;
+}
+
+/* ====== IMAGEN DE BANNER ====== */
+.hero-banner {
+  display: block;
+  width: 100%;
+  height: auto;
+  max-height: none;
+  margin: 0 auto 30px auto;
+  border-radius: 10px;
+}
+
+/* ====== TARJETAS ====== */
+.card {
+  background-color: white;
+  border-radius: 10px;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+  padding: 20px;
+  margin: 15px auto;
+  max-width: 400px;
+  transition: transform 0.3s, box-shadow 0.3s;
+}
+
+.card:hover {
+  transform: scale(1.03); /* Efecto de agrandarse al pasar el mouse */
+  box-shadow: 0 8px 20px rgba(0,0,0,0.15);
+}
+
+.card i {
+  font-size: 2rem;
+  color: #40739e;
+  margin-bottom: 10px;
+}
+
+.card h3 {
+  color: #273c75;
+  margin-bottom: 8px;
+}
+
+.card p {
+  margin: 5px 0;
+}
+
+/* ====== BOTONES DE ACCIÓN ====== */
+.btn-group button {
+  background-color: #273c75;
+  color: white;
+  border: none;
+  padding: 8px 12px;
+  border-radius: 6px;
+  margin: 5px;
+  cursor: pointer;
+  font-weight: 500;
+  transition: background-color 0.3s;
+}
+
+.btn-group button:hover {
+  background-color: #40739e;
+}
+
+/* ====== SECCIONES ESPECÍFICAS ====== */
+#materias h3 {
+  margin-top: 30px;
+  color: #192a56;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+}
+
+#materias .card h4 {
+  color: #353b48;
+  font-weight: 600;
+}
+
+/* ======  MATERIAS EN COLUMNAS ====== */
+/* Contenedor general con columnas flexibles */
+.contenedor-materia {
+  display: flex;
+  gap: 2rem;
+}
+.materias-grid {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 2rem;
+  justify-content: center;
+  padding: 40px 20px;
+  max-width: 1200px;
+  margin: auto;
+}
+
+/* Cada columna representa un año */
+.materia-col {
+  background-color: white;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+  border-radius: 10px;
+  padding: 20px;
+  flex: 1;
+  min-width: 280px;
+  max-width: 350px;
+}
+
+/* Título de cada año */
+.materia-col h3 {
+  color: #1e3799;
+  margin-bottom: 15px;
+  font-size: 1.2rem;
+  text-align: center;
+}
+
+/* Lista de materias */
+.materia-col ul {
+  list-style: none;
+  padding-left: 0;
+}
+
+.materia-col li {
+  padding: 8px 0;
+  border-bottom: 1px solid #ddd;
+  font-weight: 500;
+  color: #353b48;
+}
+
+.materia-col li:last-child {
+  border-bottom: none;
+}
+
+/* ====== DOCENTES EN FILAS ====== */
+.docentes-grid {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 2rem;
+  padding: 1rem;
+}
+
+#docentes .card {
+  width: 280px; /* Aumentamos el ancho para que el texto no se desborde */
+  min-height: 220px; /* Altura mínima para mantener consistencia visual */
+  text-align: center;
+  word-wrap: break-word; /* Evita que el texto largo se salga */
+  overflow-wrap: break-word; /* Compatibilidad adicional */
+  padding: 1rem;
+  box-sizing: border-box;
+} 
+
+/* ====== REFERENCIAS Y RECURSOS EN FILAS ====== */
+/* Contenedor de las tarjetas de referencias */
+.referencias-grid {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 2rem;
+  padding: 1rem;
+}
+
+/* Tarjetas individuales */
+#referencias .card {
+  width: 280px; /* Ancho suficiente para contenido */
+  min-height: 180px; /* Altura mínima uniforme */
+  text-align: left;
+  word-wrap: break-word;
+  overflow-wrap: break-word;
+  padding: 1rem;
+  box-sizing: border-box;
+}
+
+
+/* ====== INTEGRANTES ====== */
+#integrantes .card {
+  display: inline-block;
+  width: 200px;
+  vertical-align: top;
+  text-align: center;
+  padding: 1rem;
+  box-sizing: border-box;
+  min-height: 180px; /* Establece una altura mínima uniforme */
+  word-wrap: break-word; /* Evita que el texto largo se desborde */
+  overflow-wrap: break-word;
+}
+
+
+/* ====== PIE DE PÁGINA ====== */
+footer {
+  background-color: #1e3799;
+  color: white;
+  text-align: center;
+  padding: 20px 0;
+  margin-top: 40px;
+  font-size: 0.9rem;
+}
+
+/* ====== ADAPTACIÓN A CELULARES ====== */
+@media (max-width: 768px) {
+  .nav-links {
+    flex-wrap: wrap;
+    justify-content: center;
+  }
+
+  .navbar h1 {
+    font-size: 1rem;
+  }
+
+  .hero h2 {
+    font-size: 1.7rem;
+  }
+
+  .hero p {
+    font-size: 1rem;
+  }
+
+  .card {
+    max-width: 90%;
+  }
+
+  #integrantes .card {
+    width: 90%;
+  }
+
+  /* Materias en columnas se apilan verticalmente en pantallas pequeñas */
+  .materias-grid {
+    flex-direction: column;
+    align-items: center;
+  }
+}
